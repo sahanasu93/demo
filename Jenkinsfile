@@ -1,15 +1,32 @@
+def choice=[]
+node {
+    choice = params["my-checkbox"].split(",")
+}
 pipeline {
   agent any
   parameters{
-    choice(name: 'choose',
-      choices: 'one\ntwo\nthree\nfour',
-      description: 'which stage should run?')
     string(name: 'PERSON', defaultValue: 'Vikas', description: 'Is he happy?')
-  }
+    CheckboxParameter(name:'my-checkbox', description: 'select any 1')
+    {
+      "key": "stage 1",
+      "value": "stage 1"
+    },
+    {
+      "key": "stage 2",
+      "value": "stage 2"
+    },
+    {
+      "key": "stage 3",
+      "value": "stage 3"
+    }
+    {
+      "key": "stage 4",
+      "value": "stage 4"
+    }
+}
   stages {
     stage('stage 1') {
       steps {
-        echo "${params.choose}"
         echo "${params.PERSON}"
         echo 'test success'
         echo 'build'
