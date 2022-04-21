@@ -1,28 +1,8 @@
-def choice=[]
-node {
-    choice = params["my-checkbox"].split(",")
-}
 pipeline {
   agent any
   parameters{
     string(name: 'PERSON', defaultValue: 'Vikas', description: 'Is he happy?')
-    CheckboxParameter (name:'my-checkbox', format: 'JSON', description: 'select any 1')
-    {
-      "key": "stage 1",
-      "value": "stage 1"
-    },
-    {
-      "key": "stage 2",
-      "value": "stage 2"
-    },
-    {
-      "key": "stage 3",
-      "value": "stage 3"
-    }
-    {
-      "key": "stage 4",
-      "value": "stage 4"
-    }
+    properties([parameters([extendedChoice(multiSelectDelimiter: ',', name: 'Type of stage', quoteValue: false, saveJSONParameterToFile: false, type: 'PT_CHECKBOX', value: 'Stage1,Stage2,Stage3,Stage4', visibleItemCount: 4)])])
 }
   stages {
     stage('stage 1') {
