@@ -4,6 +4,7 @@ pipeline {
     stage('staging') {
       steps {
         echo 'test is valid'
+        echo 'test success'
       }
     }
 
