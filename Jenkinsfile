@@ -6,7 +6,7 @@ pipeline {
   agent any
   parameters{
     string(name: 'PERSON', defaultValue: 'Vikas', description: 'Is he happy?')
-    "CheckboxParameter"[(name:'my-checkbox', description: 'select any 1')
+    "CheckboxParameter": [(name:'my-checkbox', description: 'select any 1')
     {
       "key": "stage 1",
       "value": "stage 1"
