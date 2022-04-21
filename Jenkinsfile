@@ -6,6 +6,7 @@ pipeline {
         echo 'test is valid'
         echo 'test success'
         echo 'build'
+        echo 'completed'
       }
     }
 
