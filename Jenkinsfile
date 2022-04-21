@@ -5,6 +5,7 @@ pipeline {
       steps {
         echo 'test is valid'
         echo 'test success'
+        echo 'build'
       }
     }
 
