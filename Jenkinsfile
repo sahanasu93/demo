@@ -6,7 +6,7 @@ pipeline {
 }
   stages {
     stage('stage 1') {
-      when {stage stage1}
+      when {Types stage1}
       steps {
         echo "${params.Types}"
         echo "${params.PERSON}"
@@ -16,21 +16,21 @@ pipeline {
       }
     }
     stage('stage 2'){
-      when {stage stage2}
+      when {Types stage2}
       steps{
         echo "${params.Types}"
         echo "His name is ${params.PERSON}"
       }
     }
     stage('stage 3'){
-      when {stage stage3}
+      when {Types stage3}
       steps{
         echo "${params.Types}"
         echo "${params.PERSON} is from bangalore"
       }
     }
     stage('stage 4'){
-      when {stage stage4}
+      when {Types stage4}
       steps{
         echo "${params.Types}"
         echo "${params.PERSON} is married to sahana"
