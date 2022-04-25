@@ -2,7 +2,8 @@ pipeline {
   agent any
   parameters{
     string(name: 'PERSON', defaultValue: 'Vikas', description: 'Is he happy?')
-    booleanParam(name: 'TOGGLE', defaultValue: true, description: 'Toggle this value')
+    booleanParam(description: 'select any 1', name: 'TOGGLE')
+    properties([parameters([choice(choices: ['master', 'sample', 'feature'], description: 'select branch to build', name: 'Branch')])])
 }
   stages {
     stage('stage 1') {
