@@ -3,7 +3,7 @@ pipeline {
   parameters{
     string(name: 'PERSON', defaultValue: 'Vikas', description: 'Is he happy?')
     booleanParam(description: 'select any 1', name: 'TOGGLE')
-    properties([parameters([choice(choices: ['master', 'sample', 'feature'], description: 'select branch to build', name: 'Branch')])])
+    properties([parameters([choice(choices: ['Stage 1', 'Stage 2', 'Stage 3', 'Stage 4'], description: 'select any', name: 'Types of build')])])
 }
   stages {
     stage('stage 1') {
