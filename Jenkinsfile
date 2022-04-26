@@ -24,6 +24,7 @@ pipeline {
       steps{
         echo "Build number is ${currentBuild.number}"
         echo "His name is ${params.PERSON}"
+        echo "printenv"
       }
     }
     stage('Label 3'){
