@@ -8,10 +8,15 @@ pipeline {
   stages {
     stage('Label 1') {
       steps {
+        script{
+          if ("${params.printperson}" == 'true')
+          {
         echo "${params.printperson}"
         echo "${params.PERSON}"
         echo 'test success'
         echo 'build' 
+          }
+        }
       }
     }
     stage('Label 2'){
