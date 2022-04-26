@@ -7,6 +7,7 @@ pipeline {
 }
   stages {
     stage('Label 1') {
+      when {branch 'master'}
       steps {
         script{
           if ("${params.printperson}" == 'true')
@@ -24,7 +25,6 @@ pipeline {
       steps{
         echo "Build number is ${currentBuild.number}"
         echo "His name is ${params.PERSON}"
-        echo "printenv"
       }
     }
     stage('Label 3'){
