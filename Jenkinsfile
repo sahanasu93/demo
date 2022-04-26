@@ -21,7 +21,7 @@ pipeline {
       }
     }
     stage('Label 2'){
-      when { expression{(params.Build == 'Stage 2' || params.Build == 'Stage 3' || params.Build == 'Stage 4') && branch 'feature'} }
+      when { expression{(params.Build == 'Stage 2' || params.Build == 'Stage 3' || params.Build == 'Stage 4')} && branch 'feature'}
       steps{
         echo "Build number is ${currentBuild.number}"
         echo "His name is ${params.PERSON}"
