@@ -6,7 +6,8 @@ pipeline {
     choice(choices: ['Stage 1', 'Stage 2', 'Stage 3', 'Stage 4'], description: 'select any', name: 'Types of build')
 }
   stages {
-    stage('stage 1') {
+    stage('Stage 1') {
+      when { expression { Stage 1 || Stage 2  } }
       steps {
         echo "${params.TOGGLE}"
         echo "${params.PERSON}"
@@ -15,19 +16,19 @@ pipeline {
         echo 'completed'  
       }
     }
-    stage('stage 2'){
+    stage('Stage 2'){
       steps{
         echo "${params.TOGGLE}"
         echo "His name is ${params.PERSON}"
       }
     }
-    stage('stage 3'){
+    stage('Stage 3'){
       steps{
         echo "${params.TOGGLE}"
         echo "${params.PERSON} is from bangalore"
       }
     }
-    stage('stage 4'){
+    stage('Stage 4'){
       steps{
         echo "${params.TOGGLE}"
         echo "${params.PERSON} is married to sahana"
