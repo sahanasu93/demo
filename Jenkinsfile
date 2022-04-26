@@ -21,14 +21,15 @@ pipeline {
       }
     }
     stage('Label 2'){
-      when { expression{params.Build == 'Stage 2' || params.Build == 'Stage 3' || params.Build == 'Stage 4'} }
+      when {expression{params.Build == 'Stage 2' || params.Build == 'Stage 3' || params.Build == 'Stage 4'}
+      branch 'feature'}
       steps{
         echo "Build number is ${currentBuild.number}"
         echo "His name is ${params.PERSON}"
       }
     }
     stage('Label 3'){
-      when { expression{params.Build == 'Stage 3' || params.Build == 'Stage 4'} }
+      when {expression{(params.Build == 'Stage 3' || params.Build == 'Stage 4' || params.Build == 'Stage 4') && env.BRANCH_NAME == 'feature'}}
       steps{
         echo "${params.PERSON} is from bangalore"
       }
