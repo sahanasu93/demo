@@ -7,7 +7,7 @@ pipeline {
 }
   stages {
     stage('Label 1') {
-      when {$params.printperson == true}
+      when {"${params.printperson}" == "true"}
       steps {
         echo "${params.PERSON}"
         echo 'test success'
