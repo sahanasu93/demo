@@ -7,7 +7,7 @@ pipeline {
 }
   stages {
     stage('Label 1') {
-      when { expression{params.Build == 'Stage1' || params.Build == 'Stage 2'} }
+      when { expression{params.Build == 'Stage1' || params.Build == 'Stage 2' || params.Build == 'Stage 3' || params.Build == 'Stage 4'} }
       steps {
         echo "${params.PERSON}"
         echo 'test success'
