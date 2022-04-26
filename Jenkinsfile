@@ -9,7 +9,6 @@ pipeline {
     stage('Label 1') {
       when { expression{params.Build == 'Stage1' || params.Build == 'Stage 2'} }
       steps {
-        echo "${params.TOGGLE}"
         echo "${params.PERSON}"
         echo 'test success'
         echo 'build'
@@ -18,19 +17,16 @@ pipeline {
     }
     stage('Label 2'){
       steps{
-        echo "${params.TOGGLE}"
         echo "His name is ${params.PERSON}"
       }
     }
     stage('Label 3'){
       steps{
-        echo "${params.TOGGLE}"
         echo "${params.PERSON} is from bangalore"
       }
     }
     stage('Label 4'){
       steps{
-        echo "${params.TOGGLE}"
         echo "${params.PERSON} is married to sahana"
       }
     }
