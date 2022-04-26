@@ -7,7 +7,6 @@ pipeline {
 }
   stages {
     stage('Label 1') {
-      when { expression{params.Build == 'Stage 1' || params.Build == 'Stage 2' || params.Build == 'Stage 3' || params.Build == 'Stage 4'} }
       steps {
         echo "${params.PERSON}"
         echo 'test success'
@@ -16,16 +15,19 @@ pipeline {
       }
     }
     stage('Label 2'){
+      when { expression{params.Build == 'Stage 2' || params.Build == 'Stage 3' || params.Build == 'Stage 4'} }
       steps{
         echo "His name is ${params.PERSON}"
       }
     }
     stage('Label 3'){
+      when { expression{params.Build == 'Stage 3' || params.Build == 'Stage 4'} }
       steps{
         echo "${params.PERSON} is from bangalore"
       }
     }
     stage('Label 4'){
+      when { expression{params.Build == 'Stage 4'} }
       steps{
         echo "${params.PERSON} is married to sahana"
       }
